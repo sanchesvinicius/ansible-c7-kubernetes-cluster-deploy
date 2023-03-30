@@ -22,7 +22,6 @@
        line: "{{ item }}"
        state: present
      with_items:
-     - '192.169.106.135 k8s-master'
      - '192.168.106.136 k8s-node-01'
      - '192.168.106.137 k8s-node-02'
 
@@ -116,7 +115,7 @@
        mode: 0755
 
    - name: Iniciando cluster com kube init
-     ansible.builtin.shell: 'kubeadm init --pod-network-cidr 192.168.0.0/16'
+     ansible.builtin.shell: 'kubeadm init'
      args:
        executable: /bin/bash
      register: kubeadm
